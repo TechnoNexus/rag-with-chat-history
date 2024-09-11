@@ -19,7 +19,7 @@ load_dotenv()
 
 vector_store = PGVector(
     collection_name="collection164",
-    connection_string="postgresql+psycopg://postgres@localhost:5432/database164",
+    connection_string=f"postgresql+psycopg://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/database164",
     embedding_function=OpenAIEmbeddings()
 )
 
@@ -54,7 +54,7 @@ old_chain = (
         )
 ).with_types(input_type=RagInput)
 
-postgres_memory_url = "postgresql+psycopg://postgres:postgres@localhost:5432/pdf_rag_history"
+postgres_memory_url = f"postgresql+psycopg://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/pdf_rag_history"
 
 get_session_history = lambda session_id: SQLChatMessageHistory(
     connection_string=postgres_memory_url,
