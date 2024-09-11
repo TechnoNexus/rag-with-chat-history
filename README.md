@@ -1,1 +1,1 @@
-RAG Application with Chat History
+Full Stack RAG Application with Chat History
