@@ -14,7 +14,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000"
-        "https://rag-with-chat-history-i80c7ql63-technonexus-projects.vercel.app/"
     ],
     allow_credentials=True,
     allow_methods=["*"],
